@@ -27,7 +27,7 @@ else
 fi
 
 PUBLIC_INCLUDES="alloc.h callback.h config.h custom.h fail.h hash.h intext.h \
-  memory.h misc.h mlvalues.h printexc.h signals.h compatibility.h"
+  memory.h misc.h m.h mlvalues.h printexc.h s.h signals.h compatibility.h"
 if [ -e ../tools/cleanup-header ]; then
   for i in ${PUBLIC_INCLUDES}; do
     sed -f ../tools/cleanup-header $HEADERS_SRC/$i > $idir/caml/$i

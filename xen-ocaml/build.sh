@@ -53,6 +53,12 @@ case `ocamlopt -version` in
   BIGARRAY_OBJ="mmap_unix.o"
   CFLAGS="-D__ANDROID__ $CFLAGS"
   ;;
+4.06.*)
+  echo Applying OCaml 4.06 config
+  cp config/version-406.h ocaml-src/byterun/caml/version.h
+  BIGARRAY_OBJ="mmap.o"
+  CFLAGS="-D__ANDROID__ $CFLAGS"
+  ;;
 *)
   echo unsupported OCaml version `ocamlopt -version`
   exit 1
@@ -60,7 +66,14 @@ case `ocamlopt -version` in
 esac
 
 cd ocaml-src && ./configure && cd ..
-cp config/s.h ocaml-src/config/
+case `ocamlopt -version` in
+4.06.*)
+  cp config/s.h ocaml-src/byterun/caml/
+  ;;
+*)
+  cp config/s.h ocaml-src/config/
+  ;;
+esac
 cd ocaml-src
 # cd byterun && make BYTECCCOMPOPTS="${CFLAGS}" BYTECCCOMPOPTS="${CFLAGS}" libcamlrun.a && cd ..
 cd asmrun && make -j${NJOBS} UNIX_OR_WIN32=unix NATIVECCCOMPOPTS="-DNATIVE_CODE ${CFLAGS}" NATIVECCPROFOPTS="-DNATIVE_CODE ${CFLAGS}" libasmrun.a && cd ..
