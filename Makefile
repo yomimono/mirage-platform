@@ -1,5 +1,5 @@
 .PHONY: xen-ocaml-build xen-posix-build
-.DEFAULT: all
+.DEFAULT: xen-posix-install xen-ocaml-install
 
 xen-ocaml-build:
 	cd xen-ocaml && $(MAKE) build
@@ -18,3 +18,8 @@ xen-posix-install:
 
 xen-posix-uninstall:
 	cd xen-posix && $(MAKE) uninstall
+
+clean:
+	cd xen-posix && $(MAKE) clean
+	cd xen-ocaml && $(MAKE) clean
+
