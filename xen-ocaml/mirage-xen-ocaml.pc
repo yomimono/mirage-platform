@@ -7,7 +7,7 @@ Name: mirage-xen-ocaml
 Version: 1.0.0
 URL: https://github.com/mirage/mirage-platform/
 Description: OCaml runtime compiled for Mirage Xen
-Cflags: -I${includedir} -D__XEN_INTERFACE_VERSION__=0x00030205 -DCONFIG_PARAVIRT
+Cflags: -I${includedir} -D__XEN_INTERFACE_VERSION__=0x00030205
 Libs: ${libdir}/mirage-xen-ocaml/libxenasmrun.a ${libdir}/mirage-xen-ocaml/libxenotherlibs.a
 Requires: mirage-xen-posix
 
