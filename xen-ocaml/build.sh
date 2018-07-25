@@ -31,7 +31,7 @@ fi
 
 CC=${CC:-cc}
 PWD=`pwd`
-CFLAGS="-Wall -Wno-attributes ${ARCH_CFLAGS} ${EXTRA_CFLAGS} ${CI_CFLAGS} -DSYS_xen -USYS_linux \
+CFLAGS="-DDEBUG -Wall -Wno-attributes ${ARCH_CFLAGS} ${EXTRA_CFLAGS} ${CI_CFLAGS} -DSYS_xen -USYS_linux \
   -fno-builtin-fprintf -Werror=format \
   $(pkg-config --cflags $PKG_CONFIG_DEPS) \
   "
