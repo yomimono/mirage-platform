@@ -63,7 +63,7 @@ cd ocaml-src && ./configure && cd ..
 cp config/s.h ocaml-src/config/
 cd ocaml-src
 # cd byterun && make BYTECCCOMPOPTS="${CFLAGS}" BYTECCCOMPOPTS="${CFLAGS}" libcamlrun.a && cd ..
-cd asmrun && make -j${NJOBS} UNIX_OR_WIN32=unix NATIVECCCOMPOPTS="-DNATIVE_CODE ${CFLAGS}" NATIVECCPROFOPTS="-DNATIVE_CODE ${CFLAGS}" libasmrun.a && cd ..
+cd asmrun && make -j${NJOBS} UNIX_OR_WIN32=unix RUNTIMED=true NATIVECCCOMPOPTS="-DNATIVE_CODE ${CFLAGS}" NATIVECCPROFOPTS="-DNATIVE_CODE ${CFLAGS}" libasmrun.a && cd ..
 CFLAGS="$CFLAGS -I../../byterun"
 cd otherlibs/bigarray && make CFLAGS="${CFLAGS}" bigarray_stubs.o ${BIGARRAY_OBJ}
 ar rcs ../../libxenotherlibs.a bigarray_stubs.o ${BIGARRAY_OBJ}
