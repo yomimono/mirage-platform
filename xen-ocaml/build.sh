@@ -18,7 +18,7 @@ armv*)
   m_file="arm"
  ;;
 *)
-  ARCH_CFLAGS="-momit-leaf-frame-pointer -mfancy-math-387"
+  ARCH_CFLAGS="-momit-leaf-frame-pointer -mfancy-math-387 -mno-red-zone"
   m_file="x86_64"
   ;;
 esac
