@@ -18,12 +18,13 @@ armv*)
   m_file="arm"
  ;;
 *)
-  ARCH_CFLAGS="-momit-leaf-frame-pointer -mfancy-math-387 -mno-red-zone"
+  ARCH_CFLAGS="-momit-leaf-frame-pointer -mfancy-math-387 -mno-red-zone -fno-stack-protector"
   m_file="x86_64"
   ;;
 esac
 
 # This extra flag only needed for gcc 4.8+
+# GCC might have higher major versions. :/
 GCC_MVER2=`gcc -dumpversion | cut -f2 -d.`
 if [ $GCC_MVER2 -ge 8 ]; then
   EXTRA_CFLAGS="-fno-tree-loop-distribute-patterns -fno-stack-protector"
