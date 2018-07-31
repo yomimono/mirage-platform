@@ -4,7 +4,7 @@
  * Most functions either always return an error or panic. A few
  * actually do something:
  *
- * - atoi and calloc are implemented
+ * - calloc is implemented
  * - write(1 or 2, ...) uses printk to display the output
  * - exit calls do_exit
  *
@@ -73,6 +73,9 @@ void* calloc(size_t nmemb, size_t _size)
   register size_t size=_size*nmemb;
   void* x=malloc(size);
   if (x) memset(x,0,size);
+  else {
+    printk("malloc for size %d returned null :(\n", size);
+  }
   return x;
 }
 
