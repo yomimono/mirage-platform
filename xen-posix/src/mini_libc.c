@@ -97,12 +97,11 @@ void exit(int status)
   printk("Mirage exiting with status %d\n", status);
   do_exit();
 }
-/*
 int atoi(const char *nptr)
 {
-  return simple_strtoul(nptr, NULL, 10);
+  printk("atoi called - crashing\n");
+  do_exit();
 }
-*/
 int open64(const char *pathname, int flags UNUSED, ...)
 {
   printk("Attempt to open(%s)!\n", pathname);
